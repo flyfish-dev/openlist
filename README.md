@@ -1,3 +1,10 @@
+## Flyfish Integration Branch
+
+This branch retains the OpenList v4.2.7 server and AGPL-3.0 license. See
+[migration, deployment and tests](./tools/flyfish/README.md) and the matching
+[Flyfish frontend](https://github.com/flyfish-dev/openlist-web/tree/flyfish).
+No production credentials, databases or private cloud exports are included.
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/OpenListTeam/Logo/main/logo.svg" width="128" height="128" alt="logo" />
 

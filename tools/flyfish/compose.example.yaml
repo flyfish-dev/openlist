@@ -1,0 +1,21 @@
+services:
+  openlist:
+    image: openlistteam/openlist:v4.2.7 # Pin a verified multiarch digest for production.
+    user: "2100:2100"
+    restart: unless-stopped
+    read_only: true
+    security_opt: [no-new-privileges:true]
+    tmpfs: [/tmp:rw,nosuid,noexec,size=64m,mode=1777]
+    ports: [127.0.0.1:5244:5244]
+    volumes:
+      - /srv/openlist/data:/opt/openlist/data:z
+      - /srv/openlist/web:/opt/openlist/web:ro,z
+      - /srv/openlist/resources:/resources:z
+    environment:
+      TZ: Asia/Shanghai
+      RUN_ARIA2: "false"
+
+# In the private config.json set dist_dir=/opt/openlist/web,
+# database.db_file=/opt/openlist/data/data.db and site_url to your HTTPS URL.
+# Connect your existing aria2 service on the same private Docker network and
+# set aria2_uri=http://aria2:6800/jsonrpc. Never publish its RPC secret or port.

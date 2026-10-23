@@ -1,0 +1,22 @@
+types {
+    text/html html htm;
+    text/plain txt md;
+    text/css css;
+    application/javascript js mjs;
+    application/json json;
+    application/wasm wasm;
+    application/xml xml;
+    application/pdf pdf;
+    application/zip zip;
+    image/svg+xml svg;
+    image/png png;
+    image/jpeg jpg jpeg;
+    image/gif gif;
+    image/webp webp;
+    image/x-icon ico;
+    font/ttf ttf;
+    font/otf otf;
+    font/woff woff;
+    font/woff2 woff2;
+    application/octet-stream bin data bcmap;
+}

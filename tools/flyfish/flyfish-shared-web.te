@@ -1,0 +1,24 @@
+module flyfish_shared_web 1.0;
+
+require {
+    type container_t;
+    type httpd_t;
+    attribute file_type;
+    attribute container_file_type;
+    attribute svirt_file_type;
+    class dir { add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr write };
+    class file { append create getattr ioctl link lock map open read rename setattr unlink write };
+    class lnk_file { create getattr ioctl read rename setattr unlink write };
+}
+
+type flyfish_shared_web_t;
+typeattribute flyfish_shared_web_t file_type;
+typeattribute flyfish_shared_web_t container_file_type;
+typeattribute flyfish_shared_web_t svirt_file_type;
+
+allow container_t flyfish_shared_web_t:dir { add_name create getattr ioctl lock open read remove_name rename reparent rmdir search setattr write };
+allow container_t flyfish_shared_web_t:file { append create getattr ioctl link lock map open read rename setattr unlink write };
+allow container_t flyfish_shared_web_t:lnk_file { create getattr ioctl read rename setattr unlink write };
+allow httpd_t flyfish_shared_web_t:dir { getattr ioctl lock open read search };
+allow httpd_t flyfish_shared_web_t:file { getattr ioctl lock map open read };
+allow httpd_t flyfish_shared_web_t:lnk_file { getattr read };
